@@ -3,1227 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabañas El Manantial | Descanso y Naturaleza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Cabañas Manantial - Alquiler de Cabañas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --azul-principal: #0284c7;
-            --azul-oscuro: #0f172a;
-            --azul-claro: #e0f2fe;
-            --celeste-suave: #f0f9ff;
-            --gris-texto: #475569;
-            --blanco: #ffffff;
-            --verde-elegante: #15803d;
-            --verde-elegante-hover: #166534;
-            --sombra: 0 10px 25px rgba(2, 132, 199, 0.1);
-            --transicion: all 0.3s ease;
-            
-            /* Colores lila para los botones del menú */
-            --lila-btn-bg: linear-gradient(135deg, #f5f3ff, #ede9fe);
-            --lila-btn-border: rgba(139, 92, 246, 0.2);
-            --lila-btn-text: #6d28d9;
-            --lila-btn-hover-bg: linear-gradient(135deg, #7c3aed, #6d28d9);
-            --lila-btn-hover-text: #ffffff;
-            --lila-btn-active-bg: linear-gradient(135deg, #6d28d9, #4c1d95);
-
-            --bg-body: #f0f9ff;
-            --bg-card: #ffffff;
-            --text-main: #0f172a;
-            --text-sub: #475569;
-            --header-bg: rgba(255, 255, 255, 0.95);
-        }
-
-        body.dark-mode {
-            --azul-principal: #38bdf8;
-            --azul-claro: #0369a1;
-            --celeste-suave: #090d16;
-            --gris-texto: #94a3b8;
-            --blanco: #1e293b;
-            --azul-oscuro: #f8fafc;
-            --sombra: 0 10px 25px rgba(0, 0, 0, 0.4);
-            
-            /* Colores lila modo oscuro */
-            --lila-btn-bg: linear-gradient(135deg, #1e1b4b, #0f172a);
-            --lila-btn-border: rgba(167, 139, 250, 0.25);
-            --lila-btn-text: #c4b5fd;
-            --lila-btn-hover-bg: linear-gradient(135deg, #7c3aed, #a78bfa);
-            --lila-btn-hover-text: #0f172a;
-            --lila-btn-active-bg: linear-gradient(135deg, #a78bfa, #7c3aed);
-
-            --bg-body: #090d16;
-            --bg-card: #1e293b;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --header-bg: rgba(15, 23, 42, 0.95);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #2c5e3b;
+            --secondary-color: #8fbc8f;
+            --accent-color: #d4a373;
+            --dark-color: #2b2b2b;
+            --light-bg: #f9f6f0;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-top: 125px; /* Ajustado para dejar espacio al header y al banner */
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-bg);
+            padding-top: 76px; /* Altura del navbar fijo */
         }
 
-        h1, h2, h3, .logo-text {
+        h1, h2, h3, h4, h5, .navbar-brand {
             font-family: 'Playfair Display', serif;
         }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--header-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s ease;
+        /* Navbar Profesional */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
 
-        /* Banner de Promoción Inicial */
-        .promo-banner {
-            position: fixed;
-            top: 72px; /* Justo debajo del header fijo */
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #7c3aed, #4c1d95);
-            color: #ffffff;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 0.92rem;
-            font-weight: 500;
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 4px 10px rgba(109, 40, 217, 0.2);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .promo-banner.hidden {
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .promo-banner a {
-            color: #ffedd5;
+        .navbar-brand {
+            color: var(--primary-color) !important;
             font-weight: 700;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .promo-banner a:hover {
-            color: #ffffff;
-        }
-
-        .promo-close {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-            margin-left: 15px;
-        }
-
-        .promo-close:hover {
-            opacity: 1;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--azul-principal);
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 8px;
-            align-items: center;
-        }
-
-        /* Botones del menú en tonos lila */
-        .nav-links button:not(#nav-contacto), .nav-links a.nav-link-btn {
-            background: var(--lila-btn-bg);
-            border: 1px solid var(--lila-btn-border);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            text-decoration: none;
-            color: var(--lila-btn-text);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transicion);
-            padding: 8px 14px;
-            border-radius: 50px;
-            box-shadow: 0 2px 5px rgba(109, 40, 217, 0.05);
-        }
-
-        .nav-links button:not(#nav-contacto):hover, .nav-links a.nav-link-btn:hover {
-            background: var(--lila-btn-hover-bg);
-            color: var(--lila-btn-hover-text);
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
-        }
-
-        .nav-links button.active:not(#nav-contacto) {
-            background: var(--lila-btn-active-bg);
-            color: var(--blanco);
-            border-color: transparent;
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
-        }
-
-        /* Botón Contacto en azul fuerte */
-        .nav-links button#nav-contacto {
-            background: linear-gradient(135deg, #0284c7, #0369a1);
-            border: 1px solid rgba(2, 132, 199, 0.3);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transicion);
-            padding: 8px 14px;
-            border-radius: 50px;
-            box-shadow: 0 2px 5px rgba(2, 132, 199, 0.1);
-        }
-
-        .nav-links button#nav-contacto:hover {
-            background: linear-gradient(135deg, #0369a1, #0f172a);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-        }
-
-        .nav-links button.active#nav-contacto {
-            background: linear-gradient(135deg, #0f172a, #0284c7);
-            color: #ffffff;
-            border-color: transparent;
-        }
-
-        .theme-toggle-btn {
-            background: var(--lila-btn-bg) !important;
-            border: 1px solid var(--lila-btn-border) !important;
-            color: var(--lila-btn-text) !important;
-            width: 38px;
-            height: 38px;
-            border-radius: 50% !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transicion);
-            font-size: 0.95rem;
-            padding: 0 !important;
-        }
-
-        .theme-toggle-btn:hover {
-            background: var(--lila-btn-hover-bg) !important;
-            color: var(--lila-btn-hover-text) !important;
-            transform: scale(1.08);
-        }
-
-        .btn-whatsapp-nav {
-            background: linear-gradient(135deg, #15803d, #166534) !important;
-            color: var(--blanco) !important;
-            padding: 8px 16px !important;
-            border-radius: 50px !important;
-            font-weight: 700 !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 6px !important;
-            text-decoration: none !important;
-            box-shadow: 0 4px 12px rgba(21, 128, 61, 0.3) !important;
-            border: none !important;
-            transition: var(--transicion) !important;
-        }
-
-        .btn-whatsapp-nav:hover {
-            background: linear-gradient(135deg, #166534, #14532d) !important;
-            transform: translateY(-2px) !important;
-        }
-
-        .view-section {
-            display: none;
-            min-height: calc(100vh - 160px);
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .view-section.active-view {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ANIMACIÓN DE ENTRADA DESDE LA IZQUIERDA */
-        @keyframes slideInFromLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px); /* Valor negativo para empezar desplazado a la izquierda */
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0); /* Posición final normal */
-            }
-        }
-
-        .hero-animate {
-            animation: slideInFromLeft 0.8s ease-out forwards;
-        }
-
-        /* PORTADA */
-        .hero {
-            height: calc(100vh - 80px);
-            background: linear-gradient(rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.35)), url('fotos/portada.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px 60px 20px;
-            margin: -50px -20px 40px -20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            background: transparent;
-            padding: 0;
-            border: none;
-            box-shadow: none;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-            margin-bottom: 12px;
-            color: #0c4a6e; 
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            margin-bottom: 0;
-            color: #0369a1; 
-            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95), 0 2px 15px rgba(255, 255, 255, 0.8);
-            font-weight: 700;
-        }
-
-        body.dark-mode .hero h1 {
-            color: #38bdf8;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95), 0 0 20px rgba(56, 189, 248, 0.5);
-        }
-
-        body.dark-mode .hero p {
-            color: #e0f2fe;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
-        }
-
-        .desc-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--sombra);
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .desc-text h3 {
-            font-size: 1.8rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .desc-text p {
-            color: var(--text-sub);
-            font-size: 1.02rem;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .desc-highlights {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: var(--celeste-suave);
-            padding: 25px;
-            border-radius: 16px;
-            border-left: 5px solid var(--azul-principal);
-            transition: background-color 0.3s ease;
-        }
-
-        .desc-highlights h4 {
-            color: var(--text-main);
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .desc-highlights ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .desc-highlights ul li {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .desc-highlights ul li i {
-            color: var(--azul-principal);
-        }
-
-        @media (max-width: 900px) {
-            .desc-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            color: var(--text-sub);
-            font-size: 1.05rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .divider {
-            width: 50px;
-            height: 3px;
-            background-color: var(--azul-principal);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
-        .info-card {
-            background: var(--bg-card);
-            padding: 35px 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--sombra);
-            border-top: 4px solid var(--azul-principal);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card i {
-            font-size: 2.5rem;
-            color: var(--azul-principal);
-            margin-bottom: 20px;
-        }
-
-        .info-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .info-card p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-        }
-
-        .tarifa-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .tarifa-card {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--sombra);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .tarifa-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .tarifa-card h3 {
-            font-size: 1.2rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tarifa-card h3 i {
-            color: var(--azul-principal);
-        }
-
-        .tarifa-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .tarifa-card ul li {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tarifa-card ul li i {
-            color: var(--verde-elegante);
-            font-size: 0.85rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            height: 250px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(to top, rgba(15,23,42,0.8), transparent);
-            color: var(--blanco);
-            font-weight: 600;
-            font-size: 0.95rem;
-            pointer-events: none;
-        }
-
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            padding: 20px;
-        }
-
-        .lightbox.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 85vh;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            object-fit: contain;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            color: var(--blanco);
-            font-size: 2.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: var(--transicion);
-        }
-
-        .lightbox-close:hover {
-            color: var(--azul-principal);
-        }
-
-        .location-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--sombra);
-            transition: background-color 0.3s ease;
-        }
-
-        .location-info h3 {
             font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
         }
 
-        .location-info p {
-            color: var(--text-sub);
-            margin-bottom: 20px;
-            font-size: 1.02rem;
+        .navbar-brand i {
+            color: var(--accent-color);
         }
 
-        .location-address {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: var(--celeste-suave);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            transition: background-color 0.3s ease;
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            margin: 0 5px;
         }
 
-        .location-address i {
-            color: var(--azul-principal);
-            font-size: 1.2rem;
-            margin-top: 3px;
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
         }
 
-        .location-address span {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .map-box {
-            width: 100%;
-            height: 350px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .map-box iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        @media (max-width: 900px) {
-            .location-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* SECCIÓN AYUDA ACORDEÓN INTERACTIVO */
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border-radius: 16px;
-            box-shadow: var(--sombra);
-            overflow: hidden;
-            border-left: 5px solid var(--azul-principal);
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-question {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 22px 25px;
-            text-align: left;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transicion);
-        }
-
-        .faq-question:hover {
-            color: var(--azul-principal);
-        }
-
-        .faq-question i.faq-icon {
-            color: var(--azul-principal);
-            font-size: 1.1rem;
-        }
-
-        .faq-question i.chevron {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .chevron {
-            transform: rotate(180deg);
-            color: var(--azul-principal);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            padding: 0 25px;
-            color: var(--text-sub);
-            font-size: 0.98rem;
-            line-height: 1.6;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 250px;
-            padding-bottom: 22px;
-        }
-
-        .contact-section {
-            background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-principal));
-            color: var(--blanco);
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 130px 0;
             text-align: center;
-            border-radius: 30px;
-            padding: 70px 30px;
-            max-width: 900px;
-            margin: 0 auto;
-            box-shadow: var(--sombra);
         }
 
-        .contact-section h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            margin-bottom: 15px;
-        }
-
-        .contact-section p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: var(--azul-claro);
-        }
-
-        .btn-contact {
-            background-color: var(--verde-elegante);
-            color: var(--blanco);
-            padding: 16px 35px;
-            border-radius: 50px;
-            font-size: 1.15rem;
+        .hero-section h1 {
+            font-size: 3.2rem;
             font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 6px 20px rgba(21, 128, 61, 0.3);
-            transition: var(--transicion);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .btn-contact:hover {
-            background-color: var(--verde-elegante-hover);
-            transform: translateY(-3px);
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
-        footer {
-            background-color: var(--azul-oscuro);
-            color: var(--azul-claro);
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #1f4228;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 94, 59, 0.3);
+        }
+
+        /* Tarjetas de Cabañas */
+        .cabin-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+
+        .cabin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .cabin-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .price-tag {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        /* Sección de Servicios */
+        .feature-box {
             text-align: center;
             padding: 30px 20px;
-            font-size: 0.95rem;
-            margin-top: 40px;
-            transition: background-color 0.3s ease;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            height: 100%;
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
         }
 
-        footer span {
-            color: var(--blanco);
-            font-weight: 600;
+        /* Sección de Contacto y Reservas */
+        .booking-section {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
         }
 
-        @media (max-width: 1050px) {
-            .nav-links {
-                display: none;
-            }
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #aaa;
+            padding: 40px 0 20px 0;
+        }
+
+        footer h5 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: white;
         }
     </style>
 </head>
-<body id="pageBody">
+<body>
 
-    <div class="promo-banner" id="promoBanner">
-        <span><i class="fa-solid fa-gift"></i> ¡Aprovechá un 10% de descuento abonando por transferencia! <a onclick="switchView('promociones', event)">Ver detalles</a></span>
-        <button class="promo-close" onclick="closePromoBanner()" title="Cerrar aviso">×</button>
-    </div>
+    <!-- Barra de Navegación Mejorada (Incluye Menú Hamburguesa para Móviles) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas.fa-tree me-2"></i>Cabañas Manantial</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cabanas">Cabañas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="#contacto" class="btn btn-custom btn-sm">Reservar Ahora</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <header>
-        <div class="nav-container">
-            <a href="#inicio" class="logo" onclick="switchView('inicio', event)">
-                <i class="fa-solid fa-water"></i>
-                <span>Cabañas El Manantial</span>
-            </a>
-            <ul class="nav-links">
-                <li><button onclick="switchView('inicio', event)" class="active" id="nav-inicio">Inicio</button></li>
-                <li><button onclick="switchView('atractivos', event)" id="nav-atractivos">Atractivos</button></li>
-                <li><button onclick="switchView('tarifas', event)" id="nav-tarifas">Tarifas</button></li>
-                <li><button onclick="switchView('promociones', event)" id="nav-promociones">Promociones</button></li>
-                <li><button onclick="switchView('galeria', event)" id="nav-galeria">Galería</button></li>
-                <li><button onclick="switchView('ubicacion', event)" id="nav-ubicacion">Ubicación</button></li>
-                <li><button onclick="switchView('ayuda', event)" id="nav-ayuda">Ayuda</button></li>
-                <li><button onclick="switchView('contacto', event)" id="nav-contacto">Contacto</button></li>
-                <li>
-                    <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn" title="Cambiar modo oscuro / claro">
-                        <i class="fa-solid fa-moon" id="themeIcon"></i>
-                    </button>
-                </li>
-                <li>
-                    <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20consultar%20disponibilidad%20en%20Cabañas%20El%20Manantial" class="btn-whatsapp-nav" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-whatsapp"></i> Consultar
-                    </a>
-                </li>
-            </ul>
+    <!-- Sección Hero -->
+    <header id="inicio" class="hero-section">
+        <div class="container">
+            <h1>Tu refugio en la naturaleza</h1>
+            <p>Disfruta de una estadía inolvidable rodeado de paz, confort y paisajes únicos en Cabañas Manantial.</p>
+            <a href="#cabanas" class="btn btn-custom btn-lg">Ver Cabañas Disponibles</a>
         </div>
     </header>
 
-    <section id="inicio" class="view-section active-view">
-        <div class="hero">
-            <div class="hero-content hero-animate">
-                <h1>Cabañas El Manantial</h1>
-                <p>Un espacio único rodeado de naturaleza, confort y tranquilidad absoluta.</p>
+    <!-- Sección de Cabañas -->
+    <section id="cabanas" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestras Cabañas</h2>
+                <p class="text-muted">Diseñadas para brindarte la máxima comodidad durante tu descanso</p>
             </div>
-        </div>
-
-        <div class="desc-container">
-            <div class="desc-text">
-                <h3>Bienvenidos a Cabañas El Manantial</h3>
-                <p>Te invitamos a vivir unos días de descanso inigualables, rodeado de vegetación y la más absoluta tranquilidad. Nuestras instalaciones están pensadas para ofrecerte el equilibrio perfecto entre calidez rústica y comodidad moderna.</p>
-                <p>La cabaña cuenta con un diseño artesanal construido en un 50% de pino y un 50% de eucalipto, ofreciendo capacidad para alojar cómodamente hasta 8 personas y disponiendo de 2 baños privados completos.</p>
-            </div>
-            <div class="desc-highlights">
-                <h4><i class="fa-solid fa-star"></i> Lo más destacado:</h4>
-                <ul>
-                    <li><i class="fa-solid fa-water-ladder"></i> <strong>Pileta privada</strong> exclusiva para tu grupo.</li>
-                    <li><i class="fa-solid fa-fire-burner"></i> <strong>Parrilla</strong> propia para disfrutar asados al aire libre.</li>
-                    <li><i class="fa-solid fa-users"></i> Gran capacidad para hasta 8 personas.</li>
-                    <li><i class="fa-solid fa-bath"></i> Doble baño privado completo.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="atractivos" class="view-section">
-        <div class="section-header">
-            <h2>Comodidad y Calidez</h2>
-            <div class="divider"></div>
-            <p>Diseñado para ofrecerte una estadía inigualable con todas las comodidades.</p>
-        </div>
-        <div class="info-grid">
-            <div class="info-card">
-                <i class="fa-solid fa-water-ladder"></i>
-                <h3>Pileta y Parrilla Privada</h3>
-                <p>Disfrutá de momentos únicos al aire libre con tu pileta privada y zona de parrilla exclusiva.</p>
-            </div>
-            <div class="info-card">
-                <i class="fa-solid fa-users"></i>
-                <h3>Gran Capacidad</h3>
-                <p>Espacio amplio preparado para hospedar cómodamente hasta 8 personas.</p>
-            </div>
-            <div class="info-card">
-                <i class="fa-solid fa-tree"></i>
-                <h3>Construcción en Madera</h3>
-                <p>Estructura artesanal elaborada en un 50% de pino y un 50% de eucalipto con doble baño privado.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="tarifas" class="view-section">
-        <div class="section-header">
-            <h2>Tarifas y Condiciones</h2>
-            <div class="divider"></div>
-            <p>Información útil para planificar tu estadía de forma transparente.</p>
-        </div>
-        <div class="tarifa-grid">
-            <div class="tarifa-card">
-                <h3><i class="fa-solid fa-circle-check"></i> Estadía y Capacidad</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Capacidad total: Hasta 8 personas.</li>
-                    <li><i class="fa-solid fa-check"></i> Incluye pileta privada con parrilla.</li>
-                    <li><i class="fa-solid fa-check"></i> Entorno completamente privado y natural.</li>
-                </ul>
-            </div>
-            <div class="tarifa-card">
-                <h3><i class="fa-solid fa-clock"></i> Horarios de Ingreso</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> <strong>Check-in (Ingreso):</strong> A partir de las 14:00 hs.</li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Check-out (Salida):</strong> Hasta las 10:00 hs.</li>
-                    <li><i class="fa-solid fa-check"></i> Flexibilidad sujeta a disponibilidad previa.</li>
-                </ul>
-            </div>
-            <div class="tarifa-card">
-                <h3><i class="fa-solid fa-handshake"></i> Reservas y Seña</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Se reserva mediante seña previa por transferencia.</li>
-                    <li><i class="fa-solid fa-check"></i> El saldo restante se abona al ingresar.</li>
-                    <li><i class="fa-solid fa-check"></i> Contacto directo por WhatsApp para presupuestos.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="promociones" class="view-section">
-        <div class="section-header">
-            <h2>Promociones y Paquetes</h2>
-            <div class="divider"></div>
-            <p>Aprovechá nuestros beneficios especiales para tu próxima escapada.</p>
-        </div>
-        <div class="tarifa-grid">
-            <div class="tarifa-card">
-                <h3><i class="fa-solid fa-gift"></i> Escapada de Fin de Semana</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> 10% de descuento abonando por transferencia.</li>
-                    <li><i class="fa-solid fa-check"></i> Incluye late check-out sujeto a disponibilidad.</li>
-                    <li><i class="fa-solid fa-check"></i> Válido para reservas de Viernes a Domingo.</li>
-                </ul>
-            </div>
-            <div class="tarifa-card">
-                <h3><i class="fa-solid fa-star"></i> Estadías Prolongadas</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Quedate 4 noches o más y obtené un precio diferencial.</li>
-                    <li><i class="fa-solid fa-check"></i> Ideal para vacaciones o descanso en familia.</li>
-                    <li><i class="fa-solid fa-check"></i> Consultá por paquetes semanales por WhatsApp.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="galeria" class="view-section">
-        <div class="section-header">
-            <h2>Galería de Imágenes</h2>
-            <div class="divider"></div>
-            <p>Hacé clic en cualquier foto para verla en tamaño completo.</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/portada.jpg" alt="portada" loading="lazy">
-                <div class="gallery-overlay">Portada</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/exterior.jpg" alt="exterior" loading="lazy">
-                <div class="gallery-overlay">Exterior y Entorno</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/sala-entrada.jpg" alt="sala entrada" loading="lazy">
-                <div class="gallery-overlay">Sala de Entrada</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/sala-sillones.jpg" alt="sala sillones" loading="lazy">
-                <div class="gallery-overlay">Estar y Sillones</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/interior.jpg" alt="interior" loading="lazy">
-                <div class="gallery-overlay">Vista al Exterior</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/cocina.jpg" alt="cocina" loading="lazy">
-                <div class="gallery-overlay">Cocina Equipada</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/escalera.jpg" alt="escalera" loading="lazy">
-                <div class="gallery-overlay">Escalera</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/planta-alta.jpg" alt="planta alta" loading="lazy">
-                <div class="gallery-overlay">Dormitorio Planta Alta</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/dormitorio.jpg" alt="dormitorio" loading="lazy">
-                <div class="gallery-overlay">Dormitorio Planta Baja</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/bano.jpg" alt="bano" loading="lazy">
-                <div class="gallery-overlay">Baño Privado</div>
-            </div>
-        </div>
-    </section>
-
-    <div id="lightboxModal" class="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close">×</button>
-        <img id="lightboxImg" src="" alt="Imagen ampliada">
-    </div>
-
-    <section id="ubicacion" class="view-section">
-        <div class="section-header">
-            <h2>¿Dónde Encontrarnos?</h2>
-            <div class="divider"></div>
-            <p>Ubicación exacta para que planifiques tu viaje sin complicaciones.</p>
-        </div>
-        <div class="location-container">
-            <div class="location-info">
-                <h3>Vení a disfrutar de la naturaleza</h3>
-                <p>Nuestras cabañas están emplazadas en un entorno de paz absoluta, ideales para desconectar de la rutina diaria y conectar con el paisaje.</p>
-                <div class="location-address">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <span>Dirección:</span><br>
-                        Barrio Kolpín, Calle México s/n (Jardín América, Misiones)
+            <div class="row g-4">
+                <!-- Cabaña 1 -->
+                <div class="col-md-4">
+                    <div class="card cabin-card">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Cabaña El Bosque">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="h5 card-title">Cabaña El Bosque</h3>
+                            <p class="card-text text-muted small flex-grow-1">Ideal para parejas. Equipada con cocina completa, cama matrimonial, hogar a leña y deck privado con vista al arroyo.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-tag">$45.000 <small class="text-muted fw-normal fs-6">/ noche</small></span>
+                                <a href="#contacto" class="btn btn-outline-success btn-sm">Consultar</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20pedirles%20la%20ubicación%20exacta%20por%20mapa" class="btn-whatsapp-nav" target="_blank" rel="noopener" style="display: inline-flex; padding: 12px 25px; font-size: 1rem; border-radius: 50px;">
-                    <i class="fa-brands fa-whatsapp"></i> Pedir ubicación por WhatsApp
-                </a>
-            </div>
-            <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540!2d-55.23!3d-27.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s27%C2%B003%2700.0%22S+55%C2%B023%2748.0%22W!5e0!3m2!1ses!2sar!4v1!5m2!1ses!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="ayuda" class="view-section">
-        <div class="section-header">
-            <h2>Ayuda y Consultas Frecuentes</h2>
-            <div class="divider"></div>
-            <p>Todo lo que necesitás saber antes de tu estadía, resuelto al instante.</p>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-credit-card faq-icon"></i> ¿Qué medios de pago aceptan para las reservas?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Las reservas y señas se pueden realizar mediante transferencia bancaria. Para el saldo restante al ingresar, te sugerimos consultar las opciones disponibles al momento de coordinar con nosotros por WhatsApp.
+                <!-- Cabaña 2 -->
+                <div class="col-md-4">
+                    <div class="card cabin-card">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Cabaña Familiar Panorámica">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="h5 card-title">Cabaña Familiar Panorámica</h3>
+                            <p class="card-text text-muted small flex-grow-1">Espacio amplio para hasta 5 personas. Dos habitaciones, living comedor integrado, parrilla individual y aire acondicionado.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-tag">$75.000 <small class="text-muted fw-normal fs-6">/ noche</small></span>
+                                <a href="#contacto" class="btn btn-outline-success btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-bed faq-icon"></i> ¿La cabaña incluye ropa de cama y toallas?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Sí, la cabaña se entrega equipada con ropa de cama básica para todos los huéspedes. Te recomendamos consultar por WhatsApp si necesitás detalles adicionales sobre toallas o abrigo extra para las noches más frescas.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-store faq-icon"></i> ¿Hay comercios o supermercados cerca de la ubicación?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Al estar ubicados en el Barrio Kolpín (Jardín América), tenés acceso rápido en vehículo a los comercios céntricos y despensas de la zona para abastecerte de todo lo que necesites durante tu estadía.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-wifi faq-icon"></i> ¿Hay conexión a internet o señal de celular?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    El lugar es ideal para desconectar de la rutina diaria. Para conocer el estado actual de la señal móvil o disponibilidad de red en el predio, podés escribirnos directamente y te informamos al detalle.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-cloud-rain faq-icon"></i> ¿Qué pasa si llueve durante nuestra estadía?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    La cabaña cuenta con amplios espacios internos muy cómodos, galería cubierta y galería de estar para disfrutar igualmente del reparo, el sonido de la naturaleza y el confort interior.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-calendar-xmark faq-icon"></i> ¿Cuáles son las políticas de cancelación o reprogramación?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Si surgiera algún imprevisto de fuerza mayor que te impida viajar en la fecha programada, comunicate con nosotros a la brevedad por WhatsApp para evaluar opciones de reprogramación de tu estadía.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-utensils faq-icon"></i> ¿La cocina está equipada para cocinar?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Sí, la cocina cuenta con el equipamiento básico necesario (utensilios, elementos de cocción y vajilla) para que puedas preparar tus comidas preferidas con total comodidad.
+                <!-- Cabaña 3 -->
+                <div class="col-md-4">
+                    <div class="card cabin-card">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Cabaña Suite del Manantial">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="h5 card-title">Suite del Manantial</h3>
+                            <p class="card-text text-muted small flex-grow-1">Máximo lujo rústico con hidromasaje doble, grandes ventanales al bosque nativo y desayuno artesanal incluido.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-tag">$90.000 <small class="text-muted fw-normal fs-6">/ noche</small></span>
+                                <a href="#contacto" class="btn btn-outline-success btn-sm">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="view-section">
-        <div class="contact-section">
-            <h2>¿Tenés alguna consulta?</h2>
-            <p>Escribinos por WhatsApp y te responderemos al instante para ayudarte a planificar tu escapada.</p>
-            <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20consultar%20disponibilidad%20en%20Cabañas%20El%20Manantial" class="btn-contact" target="_blank" rel="noopener">
-                <i class="fa-brands fa-whatsapp"></i> Chatear por WhatsApp
-            </a>
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Servicios y Comodidades</h2>
+                <p class="text-muted">Todo lo que necesitas para una estadía perfecta</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="feature-box">
+                        <i class="fas fa-wifi"></i>
+                        <h4 class="h6 fw-bold">Wi-Fi Libre</h4>
+                        <p class="text-muted small mb-0">Conexión en todo el complejo</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="feature-box">
+                        <i class="fas fa-parking"></i>
+                        <h4 class="h6 fw-bold">Estacionamiento</h4>
+                        <p class="text-muted small mb-0">Cochera cubierta propia</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="feature-box">
+                        <i class="fas fa-utensils"></i>
+                        <h4 class="h6 fw-bold">Desayuno Opcional</h4>
+                        <p class="text-muted small mb-0">Servicio a la cabaña</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="feature-box">
+                        <i class="fas fa-fire"></i>
+                        <h4 class="h6 fw-bold">Parrilla Privada</h4>
+                        <p class="text-muted small mb-0">Asador en cada unidad</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Sección de Contacto / Reserva -->
+    <section id="contacto" class="py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="booking-section">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Reserva o Consulta</h2>
+                            <p class="text-muted">Completa el formulario y nos pondremos en contacto a la brevedad.</p>
+                        </div>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombre y Apellido</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="checkin" class="form-label">Fecha de Ingreso</label>
+                                    <input type="date" class="form-control" id="checkin" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="checkout" class="form-label">Fecha de Egreso</label>
+                                    <input type="date" class="form-control" id="checkout" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="cabana-select" class="form-label">Cabaña de Preferencia</label>
+                                    <select class="form-select" id="cabana-select">
+                                        <option selected>Selecciona una opción</option>
+                                        <option value="bosque">Cabaña El Bosque</option>
+                                        <option value="familiar">Cabaña Familiar Panorámica</option>
+                                        <option value="suite">Suite del Manantial</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="mensaje" class="form-label">Mensaje o Consultas adicionales</label>
+                                    <textarea class="form-control" id="mensaje" rows="4"></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-custom px-5 py-3">Enviar Consulta</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p>© 2026 <span>Cabañas El Manantial</span>. Todos los derechos reservados.</p>
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Cabañas Manantial</h5>
+                    <p class="small">Un espacio único pensado para el relax y el contacto directo con la naturaleza.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Contacto</h5>
+                    <p class="small mb-1"><i class="fas fa-phone-alt me-2"></i>+54 9 3743 XX-XXXX</p>
+                    <p class="small mb-1"><i class="fas fa-envelope me-2"></i>contacto@cabasmanantial.com</p>
+                    <p class="small"><i class="fas fa-map-marker-alt me-2"></i>Misiones, Argentina</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Seguinos</h5>
+                    <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-5">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center small text-muted">
+                &copy; 2026 Cabañas Manantial. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 
-    <script>
-        function switchView(viewId, event) {
-            if (event) event.preventDefault();
-
-            const sections = document.querySelectorAll('.view-section');
-            sections.forEach(sec => sec.classList.remove('active-view'));
-
-            const targetSection = document.getElementById(viewId);
-            if (targetSection) {
-                targetSection.classList.add('active-view');
-            }
-
-            const buttons = document.querySelectorAll('.nav-links button:not(.theme-toggle-btn)');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            const activeBtn = document.getElementById('nav-' + viewId);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleTheme() {
-            const body = document.getElementById('pageBody');
-            const themeIcon = document.getElementById('themeIcon');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        }
-
-        function closePromoBanner() {
-            const banner = document.getElementById('promoBanner');
-            banner.classList.add('hidden');
-            document.body.style.paddingTop = '80px';
-        }
-
-        function toggleFaq(button) {
-            const item = button.parentElement;
-            
-            const allItems = document.querySelectorAll('.faq-item');
-            allItems.forEach(i => {
-                if (i !== item) {
-                    i.classList.remove('active');
-                }
-            });
-
-            item.classList.toggle('active');
-        }
-
-        function openLightbox(element) {
-            const img = element.querySelector('img');
-            const lightbox = document.getElementById('lightboxModal');
-            const lightboxImg = document.getElementById('lightboxImg');
-            
-            lightboxImg.src = img.src;
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightboxModal');
-            lightbox.classList.remove('active');
-        }
-    </script>
-
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
