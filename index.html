@@ -19,7 +19,6 @@
             --sombra: 0 10px 25px rgba(2, 132, 199, 0.1);
             --transicion: all 0.3s ease;
             
-            /* Colores lila para los botones del menú */
             --lila-btn-bg: linear-gradient(135deg, #f5f3ff, #ede9fe);
             --lila-btn-border: rgba(139, 92, 246, 0.2);
             --lila-btn-text: #6d28d9;
@@ -31,7 +30,7 @@
             --bg-card: #ffffff;
             --text-main: #0f172a;
             --text-sub: #475569;
-            --header-bg: rgba(255, 255, 255, 0.95);
+            --header-bg: rgba(255, 255, 255, 0.98);
         }
 
         body.dark-mode {
@@ -43,7 +42,6 @@
             --azul-oscuro: #f8fafc;
             --sombra: 0 10px 25px rgba(0, 0, 0, 0.4);
             
-            /* Colores lila modo oscuro */
             --lila-btn-bg: linear-gradient(135deg, #1e1b4b, #0f172a);
             --lila-btn-border: rgba(167, 139, 250, 0.25);
             --lila-btn-text: #c4b5fd;
@@ -55,7 +53,7 @@
             --bg-card: #1e293b;
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
-            --header-bg: rgba(15, 23, 42, 0.95);
+            --header-bg: rgba(15, 23, 42, 0.98);
         }
 
         * {
@@ -69,7 +67,7 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
-            padding-top: 125px; /* Ajustado para dejar espacio al header y al banner */
+            padding-top: 125px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -89,10 +87,9 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Banner de Promoción Inicial */
         .promo-banner {
             position: fixed;
-            top: 72px; /* Justo debajo del header fijo */
+            top: 72px;
             left: 0;
             width: 100%;
             background: linear-gradient(135deg, #7c3aed, #4c1d95);
@@ -123,10 +120,6 @@
             cursor: pointer;
         }
 
-        .promo-banner a:hover {
-            color: #ffffff;
-        }
-
         .promo-close {
             background: none;
             border: none;
@@ -134,7 +127,6 @@
             font-size: 1.2rem;
             cursor: pointer;
             opacity: 0.8;
-            transition: opacity 0.2s;
             margin-left: 15px;
         }
 
@@ -149,6 +141,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
@@ -168,7 +161,16 @@
             align-items: center;
         }
 
-        /* Botones del menú en tonos lila */
+        /* Botón hamburguesa (oculto en PC) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
         .nav-links button:not(#nav-contacto), .nav-links a.nav-link-btn {
             background: var(--lila-btn-bg);
             border: 1px solid var(--lila-btn-border);
@@ -189,22 +191,18 @@
             color: var(--lila-btn-hover-text);
             border-color: transparent;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
         }
 
         .nav-links button.active:not(#nav-contacto) {
             background: var(--lila-btn-active-bg);
             color: var(--blanco);
             border-color: transparent;
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
         }
 
-        /* Botón Contacto en azul fuerte */
         .nav-links button#nav-contacto {
             background: linear-gradient(135deg, #0284c7, #0369a1);
             border: 1px solid rgba(2, 132, 199, 0.3);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            text-decoration: none;
             color: #ffffff;
             font-weight: 600;
             font-size: 0.85rem;
@@ -212,20 +210,11 @@
             transition: var(--transicion);
             padding: 8px 14px;
             border-radius: 50px;
-            box-shadow: 0 2px 5px rgba(2, 132, 199, 0.1);
         }
 
         .nav-links button#nav-contacto:hover {
             background: linear-gradient(135deg, #0369a1, #0f172a);
-            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-        }
-
-        .nav-links button.active#nav-contacto {
-            background: linear-gradient(135deg, #0f172a, #0284c7);
-            color: #ffffff;
-            border-color: transparent;
         }
 
         .theme-toggle-btn {
@@ -239,15 +228,8 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: var(--transicion);
             font-size: 0.95rem;
             padding: 0 !important;
-        }
-
-        .theme-toggle-btn:hover {
-            background: var(--lila-btn-hover-bg) !important;
-            color: var(--lila-btn-hover-text) !important;
-            transform: scale(1.08);
         }
 
         .btn-whatsapp-nav {
@@ -260,14 +242,7 @@
             align-items: center !important;
             gap: 6px !important;
             text-decoration: none !important;
-            box-shadow: 0 4px 12px rgba(21, 128, 61, 0.3) !important;
             border: none !important;
-            transition: var(--transicion) !important;
-        }
-
-        .btn-whatsapp-nav:hover {
-            background: linear-gradient(135deg, #166534, #14532d) !important;
-            transform: translateY(-2px) !important;
         }
 
         .view-section {
@@ -288,23 +263,15 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ANIMACIÓN DE ENTRADA DESDE LA IZQUIERDA */
         @keyframes slideInFromLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px); /* Valor negativo para empezar desplazado a la izquierda */
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0); /* Posición final normal */
-            }
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
 
         .hero-animate {
             animation: slideInFromLeft 0.8s ease-out forwards;
         }
 
-        /* PORTADA */
         .hero {
             height: calc(100vh - 80px);
             background: linear-gradient(rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.35)), url('fotos/portada.jpg');
@@ -320,39 +287,27 @@
 
         .hero-content {
             max-width: 800px;
-            background: transparent;
-            padding: 0;
-            border: none;
-            box-shadow: none;
         }
 
         .hero h1 {
             font-size: clamp(2.8rem, 5.5vw, 4.2rem);
             margin-bottom: 12px;
             color: #0c4a6e; 
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 4px 20px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95);
             font-weight: 700;
         }
 
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.35rem);
-            margin-bottom: 0;
             color: #0369a1; 
-            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95), 0 2px 15px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95);
             font-weight: 700;
         }
 
-        body.dark-mode .hero h1 {
-            color: #38bdf8;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95), 0 0 20px rgba(56, 189, 248, 0.5);
-        }
+        body.dark-mode .hero h1 { color: #38bdf8; text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95); }
+        body.dark-mode .hero p { color: #e0f2fe; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95); }
 
-        body.dark-mode .hero p {
-            color: #e0f2fe;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
-        }
-
-        .desc-container {
+        .desc-container, .location-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -362,20 +317,17 @@
             border-radius: 24px;
             box-shadow: var(--sombra);
             margin-top: 20px;
-            transition: background-color 0.3s ease;
         }
 
-        .desc-text h3 {
+        .desc-text h3, .location-info h3 {
             font-size: 1.8rem;
             color: var(--text-main);
             margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
         }
 
-        .desc-text p {
+        .desc-text p, .location-info p {
             color: var(--text-sub);
             font-size: 1.02rem;
-            line-height: 1.7;
             margin-bottom: 15px;
         }
 
@@ -387,38 +339,21 @@
             padding: 25px;
             border-radius: 16px;
             border-left: 5px solid var(--azul-principal);
-            transition: background-color 0.3s ease;
         }
 
-        .desc-highlights h4 {
-            color: var(--text-main);
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .desc-highlights ul {
+        .desc-highlights ul, .tarifa-card ul {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .desc-highlights ul li {
+        .desc-highlights ul li, .tarifa-card ul li {
             color: var(--text-sub);
             font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .desc-highlights ul li i {
-            color: var(--azul-principal);
-        }
-
-        @media (max-width: 900px) {
-            .desc-container {
-                grid-template-columns: 1fr;
-            }
         }
 
         .section-header {
@@ -447,23 +382,23 @@
             border-radius: 2px;
         }
 
-        .info-grid {
+        .info-grid, .tarifa-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
 
-        .info-card {
+        .info-card, .tarifa-card {
             background: var(--bg-card);
             padding: 35px 25px;
             border-radius: 20px;
             text-align: center;
             box-shadow: var(--sombra);
             border-top: 4px solid var(--azul-principal);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        .info-card:hover {
+        .info-card:hover, .tarifa-card:hover {
             transform: translateY(-5px);
         }
 
@@ -471,68 +406,6 @@
             font-size: 2.5rem;
             color: var(--azul-principal);
             margin-bottom: 20px;
-        }
-
-        .info-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .info-card p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-        }
-
-        .tarifa-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .tarifa-card {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--sombra);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .tarifa-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .tarifa-card h3 {
-            font-size: 1.2rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tarifa-card h3 i {
-            color: var(--azul-principal);
-        }
-
-        .tarifa-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .tarifa-card ul li {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tarifa-card ul li i {
-            color: var(--verde-elegante);
-            font-size: 0.85rem;
         }
 
         .gallery-grid {
@@ -557,9 +430,7 @@
             transition: transform 0.5s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
+        .gallery-item:hover img { transform: scale(1.08); }
 
         .gallery-overlay {
             position: absolute;
@@ -570,16 +441,12 @@
             background: linear-gradient(to top, rgba(15,23,42,0.8), transparent);
             color: var(--blanco);
             font-weight: 600;
-            font-size: 0.95rem;
-            pointer-events: none;
         }
 
         .lightbox {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(15, 23, 42, 0.9);
             display: flex;
             justify-content: center;
@@ -591,57 +458,22 @@
             padding: 20px;
         }
 
-        .lightbox.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .lightbox.active { opacity: 1; pointer-events: auto; }
 
         .lightbox img {
             max-width: 90%;
             max-height: 85vh;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             object-fit: contain;
         }
 
         .lightbox-close {
             position: absolute;
-            top: 25px;
-            right: 30px;
+            top: 25px; right: 30px;
             color: var(--blanco);
             font-size: 2.5rem;
             cursor: pointer;
-            background: none;
-            border: none;
-            transition: var(--transicion);
-        }
-
-        .lightbox-close:hover {
-            color: var(--azul-principal);
-        }
-
-        .location-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--sombra);
-            transition: background-color 0.3s ease;
-        }
-
-        .location-info h3 {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
-        }
-
-        .location-info p {
-            color: var(--text-sub);
-            margin-bottom: 20px;
-            font-size: 1.02rem;
+            background: none; border: none;
         }
 
         .location-address {
@@ -652,18 +484,6 @@
             padding: 15px 20px;
             border-radius: 12px;
             margin-bottom: 25px;
-            transition: background-color 0.3s ease;
-        }
-
-        .location-address i {
-            color: var(--azul-principal);
-            font-size: 1.2rem;
-            margin-top: 3px;
-        }
-
-        .location-address span {
-            color: var(--text-main);
-            font-weight: 600;
         }
 
         .map-box {
@@ -671,22 +491,10 @@
             height: 350px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .map-box iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        .map-box iframe { width: 100%; height: 100%; border: 0; }
 
-        @media (max-width: 900px) {
-            .location-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* SECCIÓN AYUDA ACORDEÓN INTERACTIVO */
         .faq-container {
             max-width: 900px;
             margin: 0 auto;
@@ -701,7 +509,6 @@
             box-shadow: var(--sombra);
             overflow: hidden;
             border-left: 5px solid var(--azul-principal);
-            transition: background-color 0.3s ease;
         }
 
         .faq-question {
@@ -718,28 +525,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
-            transition: var(--transicion);
-        }
-
-        .faq-question:hover {
-            color: var(--azul-principal);
-        }
-
-        .faq-question i.faq-icon {
-            color: var(--azul-principal);
-            font-size: 1.1rem;
-        }
-
-        .faq-question i.chevron {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .chevron {
-            transform: rotate(180deg);
-            color: var(--azul-principal);
         }
 
         .faq-answer {
@@ -749,12 +534,15 @@
             padding: 0 25px;
             color: var(--text-sub);
             font-size: 0.98rem;
-            line-height: 1.6;
         }
 
         .faq-item.active .faq-answer {
             max-height: 250px;
             padding-bottom: 22px;
+        }
+
+        .faq-item.active .chevron {
+            transform: rotate(180deg);
         }
 
         .contact-section {
@@ -768,18 +556,6 @@
             box-shadow: var(--sombra);
         }
 
-        .contact-section h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            margin-bottom: 15px;
-        }
-
-        .contact-section p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: var(--azul-claro);
-        }
-
         .btn-contact {
             background-color: var(--verde-elegante);
             color: var(--blanco);
@@ -791,13 +567,6 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 6px 20px rgba(21, 128, 61, 0.3);
-            transition: var(--transicion);
-        }
-
-        .btn-contact:hover {
-            background-color: var(--verde-elegante-hover);
-            transform: translateY(-3px);
         }
 
         footer {
@@ -805,26 +574,47 @@
             color: var(--azul-claro);
             text-align: center;
             padding: 30px 20px;
-            font-size: 0.95rem;
             margin-top: 40px;
-            transition: background-color 0.3s ease;
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        footer span {
-            color: var(--blanco);
-            font-weight: 600;
-        }
-
+        /* MEDIA QUERIES PARA ADAPTABILIDAD MÓVIL */
         @media (max-width: 1050px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--header-bg);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links button, .nav-links a {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .desc-container, .location-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -842,7 +632,13 @@
                 <i class="fa-solid fa-water"></i>
                 <span>Cabañas El Manantial</span>
             </a>
-            <ul class="nav-links">
+            
+            <!-- Botón Hamburguesa agregado para móviles -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
                 <li><button onclick="switchView('inicio', event)" class="active" id="nav-inicio">Inicio</button></li>
                 <li><button onclick="switchView('atractivos', event)" id="nav-atractivos">Atractivos</button></li>
                 <li><button onclick="switchView('tarifas', event)" id="nav-tarifas">Tarifas</button></li>
@@ -934,8 +730,8 @@
             <div class="tarifa-card">
                 <h3><i class="fa-solid fa-clock"></i> Horarios de Ingreso</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> <strong>Check-in (Ingreso):</strong> A partir de las 14:00 hs.</li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Check-out (Salida):</strong> Hasta las 10:00 hs.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Check-in:</strong> A partir de las 14:00 hs.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Check-out:</strong> Hasta las 10:00 hs.</li>
                     <li><i class="fa-solid fa-check"></i> Flexibilidad sujeta a disponibilidad previa.</li>
                 </ul>
             </div>
@@ -983,46 +779,16 @@
             <p>Hacé clic en cualquier foto para verla en tamaño completo.</p>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/portada.jpg" alt="portada" loading="lazy">
-                <div class="gallery-overlay">Portada</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/exterior.jpg" alt="exterior" loading="lazy">
-                <div class="gallery-overlay">Exterior y Entorno</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/sala-entrada.jpg" alt="sala entrada" loading="lazy">
-                <div class="gallery-overlay">Sala de Entrada</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/sala-sillones.jpg" alt="sala sillones" loading="lazy">
-                <div class="gallery-overlay">Estar y Sillones</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/interior.jpg" alt="interior" loading="lazy">
-                <div class="gallery-overlay">Vista al Exterior</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/cocina.jpg" alt="cocina" loading="lazy">
-                <div class="gallery-overlay">Cocina Equipada</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/escalera.jpg" alt="escalera" loading="lazy">
-                <div class="gallery-overlay">Escalera</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/planta-alta.jpg" alt="planta alta" loading="lazy">
-                <div class="gallery-overlay">Dormitorio Planta Alta</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/dormitorio.jpg" alt="dormitorio" loading="lazy">
-                <div class="gallery-overlay">Dormitorio Planta Baja</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="fotos/bano.jpg" alt="bano" loading="lazy">
-                <div class="gallery-overlay">Baño Privado</div>
-            </div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/portada.jpg" alt="portada" loading="lazy"><div class="gallery-overlay">Portada</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/exterior.jpg" alt="exterior" loading="lazy"><div class="gallery-overlay">Exterior y Entorno</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/sala-entrada.jpg" alt="sala entrada" loading="lazy"><div class="gallery-overlay">Sala de Entrada</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/sala-sillones.jpg" alt="sala sillones" loading="lazy"><div class="gallery-overlay">Estar y Sillones</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/interior.jpg" alt="interior" loading="lazy"><div class="gallery-overlay">Vista al Exterior</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/cocina.jpg" alt="cocina" loading="lazy"><div class="gallery-overlay">Cocina Equipada</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/escalera.jpg" alt="escalera" loading="lazy"><div class="gallery-overlay">Escalera</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/planta-alta.jpg" alt="planta alta" loading="lazy"><div class="gallery-overlay">Dormitorio Planta Alta</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/dormitorio.jpg" alt="dormitorio" loading="lazy"><div class="gallery-overlay">Dormitorio Planta Baja</div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="fotos/bano.jpg" alt="bano" loading="lazy"><div class="gallery-overlay">Baño Privado</div></div>
         </div>
     </section>
 
@@ -1040,7 +806,7 @@
         <div class="location-container">
             <div class="location-info">
                 <h3>Vení a disfrutar de la naturaleza</h3>
-                <p>Nuestras cabañas están emplazadas en un entorno de paz absoluta, ideales para desconectar de la rutina diaria y conectar con el paisaje.</p>
+                <p>Nuestras cabañas están emplazadas en un entorno de paz absoluta, ideales para desconectar de la rutina diaria.</p>
                 <div class="location-address">
                     <i class="fa-solid fa-location-dot"></i>
                     <div>
@@ -1048,12 +814,12 @@
                         Barrio Kolpín, Calle México s/n (Jardín América, Misiones)
                     </div>
                 </div>
-                <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20pedirles%20la%20ubicación%20exacta%20por%20mapa" class="btn-whatsapp-nav" target="_blank" rel="noopener" style="display: inline-flex; padding: 12px 25px; font-size: 1rem; border-radius: 50px;">
+                <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20pedirles%20la%20ubicación%20exacta" class="btn-whatsapp-nav" target="_blank" rel="noopener" style="display: inline-flex; padding: 12px 25px; border-radius: 50px;">
                     <i class="fa-brands fa-whatsapp"></i> Pedir ubicación por WhatsApp
                 </a>
             </div>
             <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540!2d-55.23!3d-27.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s27%C2%B003%2700.0%22S+55%C2%B023%2748.0%22W!5e0!3m2!1ses!2sar!4v1!5m2!1ses!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540!2d-55.23!3d-27.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s27%C2%B003%2700.0%22S+55%C2%B023%2748.0%22W!5e0!3m2!1ses!2sar!4v1!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -1067,72 +833,17 @@
         <div class="faq-container">
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-credit-card faq-icon"></i> ¿Qué medios de pago aceptan para las reservas?</span>
+                    <span><i class="fa-solid fa-credit-card"></i> ¿Qué medios de pago aceptan para las reservas?</span>
                     <i class="fa-solid fa-chevron-down chevron"></i>
                 </button>
-                <div class="faq-answer">
-                    Las reservas y señas se pueden realizar mediante transferencia bancaria. Para el saldo restante al ingresar, te sugerimos consultar las opciones disponibles al momento de coordinar con nosotros por WhatsApp.
-                </div>
+                <div class="faq-answer">Las reservas y señas se pueden realizar mediante transferencia bancaria.</div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-bed faq-icon"></i> ¿La cabaña incluye ropa de cama y toallas?</span>
+                    <span><i class="fa-solid fa-bed"></i> ¿La cabaña incluye ropa de cama y toallas?</span>
                     <i class="fa-solid fa-chevron-down chevron"></i>
                 </button>
-                <div class="faq-answer">
-                    Sí, la cabaña se entrega equipada con ropa de cama básica para todos los huéspedes. Te recomendamos consultar por WhatsApp si necesitás detalles adicionales sobre toallas o abrigo extra para las noches más frescas.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-store faq-icon"></i> ¿Hay comercios o supermercados cerca de la ubicación?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Al estar ubicados en el Barrio Kolpín (Jardín América), tenés acceso rápido en vehículo a los comercios céntricos y despensas de la zona para abastecerte de todo lo que necesites durante tu estadía.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-wifi faq-icon"></i> ¿Hay conexión a internet o señal de celular?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    El lugar es ideal para desconectar de la rutina diaria. Para conocer el estado actual de la señal móvil o disponibilidad de red en el predio, podés escribirnos directamente y te informamos al detalle.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-cloud-rain faq-icon"></i> ¿Qué pasa si llueve durante nuestra estadía?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    La cabaña cuenta con amplios espacios internos muy cómodos, galería cubierta y galería de estar para disfrutar igualmente del reparo, el sonido de la naturaleza y el confort interior.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-calendar-xmark faq-icon"></i> ¿Cuáles son las políticas de cancelación o reprogramación?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Si surgiera algún imprevisto de fuerza mayor que te impida viajar en la fecha programada, comunicate con nosotros a la brevedad por WhatsApp para evaluar opciones de reprogramación de tu estadía.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span><i class="fa-solid fa-utensils faq-icon"></i> ¿La cocina está equipada para cocinar?</span>
-                    <i class="fa-solid fa-chevron-down chevron"></i>
-                </button>
-                <div class="faq-answer">
-                    Sí, la cocina cuenta con el equipamiento básico necesario (utensilios, elementos de cocción y vajilla) para que puedas preparar tus comidas preferidas con total comodidad.
-                </div>
+                <div class="faq-answer">Sí, se entrega equipada con ropa de cama básica para todos los huéspedes.</div>
             </div>
         </div>
     </section>
@@ -1140,8 +851,8 @@
     <section id="contacto" class="view-section">
         <div class="contact-section">
             <h2>¿Tenés alguna consulta?</h2>
-            <p>Escribinos por WhatsApp y te responderemos al instante para ayudarte a planificar tu escapada.</p>
-            <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20consultar%20disponibilidad%20en%20Cabañas%20El%20Manantial" class="btn-contact" target="_blank" rel="noopener">
+            <p>Escribinos por WhatsApp y te responderemos al instante.</p>
+            <a href="https://wa.me/5493743619562?text=Hola!%20Quisiera%20consultar%20disponibilidad" class="btn-contact" target="_blank" rel="noopener">
                 <i class="fa-brands fa-whatsapp"></i> Chatear por WhatsApp
             </a>
         </div>
@@ -1161,69 +872,72 @@
             sections.forEach(sec => sec.classList.remove('active-view'));
 
             const targetSection = document.getElementById(viewId);
-            if (targetSection) {
-                targetSection.classList.add('active-view');
-            }
+            if (targetSection) targetSection.classList.add('active-view');
 
             const buttons = document.querySelectorAll('.nav-links button:not(.theme-toggle-btn)');
             buttons.forEach(btn => btn.classList.remove('active'));
 
             const activeBtn = document.getElementById('nav-' + viewId);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-            }
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Cierra el menú móvil al hacer clic en una sección
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('show');
+            const menuIcon = document.getElementById('menuIcon');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menuIcon');
+            
+            navLinks.classList.toggle('show');
+            
+            if (navLinks.classList.contains('show')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
         }
 
         function toggleTheme() {
             const body = document.getElementById('pageBody');
             const themeIcon = document.getElementById('themeIcon');
-            
             body.classList.toggle('dark-mode');
             
             if (body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
             } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
             }
         }
 
         function closePromoBanner() {
-            const banner = document.getElementById('promoBanner');
-            banner.classList.add('hidden');
+            document.getElementById('promoBanner').classList.add('hidden');
             document.body.style.paddingTop = '80px';
         }
 
         function toggleFaq(button) {
             const item = button.parentElement;
-            
-            const allItems = document.querySelectorAll('.faq-item');
-            allItems.forEach(i => {
-                if (i !== item) {
-                    i.classList.remove('active');
-                }
+            document.querySelectorAll('.faq-item').forEach(i => {
+                if (i !== item) i.classList.remove('active');
             });
-
             item.classList.toggle('active');
         }
 
         function openLightbox(element) {
-            const img = element.querySelector('img');
-            const lightbox = document.getElementById('lightboxModal');
-            const lightboxImg = document.getElementById('lightboxImg');
-            
-            lightboxImg.src = img.src;
-            lightbox.classList.add('active');
+            document.getElementById('lightboxImg').src = element.querySelector('img').src;
+            document.getElementById('lightboxModal').classList.add('active');
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('lightboxModal');
-            lightbox.classList.remove('active');
+            document.getElementById('lightboxModal').classList.remove('active');
         }
     </script>
-
 </body>
 </html>
